@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scurry Infotech - Innovative Restaurant Tech Solutions</title>
+    <title>Scurry Infotech LLP</title>
     <style>
         * {
             margin: 0;
@@ -12,7 +13,7 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #333;
             overflow-x: hidden;
@@ -24,38 +25,37 @@
             padding: 0 20px;
         }
 
-        /* Header & Navigation */
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem 0;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            backdrop-filter: blur(10px);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 0;
         }
 
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: glow 2s ease-in-out infinite alternate;
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        @keyframes glow {
-            from { filter: drop-shadow(0 0 5px rgba(255, 107, 107, 0.3)); }
-            to { filter: drop-shadow(0 0 20px rgba(78, 205, 196, 0.3)); }
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
         }
 
         .nav-links {
@@ -65,96 +65,348 @@
         }
 
         .nav-links a {
-            color: white;
+            color: #333;
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
+            transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            transform: translateY(-2px);
+            color: #1e3a8a;
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu {
+        .mobile-toggle {
             display: none;
             flex-direction: column;
+            gap: 4px;
             cursor: pointer;
         }
 
-        .mobile-menu span {
+        .mobile-toggle span {
             width: 25px;
             height: 3px;
-            background: white;
-            margin: 3px 0;
+            background: #333;
             transition: 0.3s;
         }
 
-        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
             color: white;
-            padding: 150px 0 100px;
+            padding: 140px 0 80px;
             text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: white;
+            color: #1e3a8a;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e3a8a;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: #1e3a8a;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .about-section {
+            background: #f8fafc;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            color: #1e3a8a;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+
+        .about-visual {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 400px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .services-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+        }
+
+        .services-section .section-title {
+            color: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: background 0.3s;
+        }
+
+        .service-card:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .team-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin: 0 auto 1rem;
+        }
+
+        .team-card h3 {
+            color: #1e3a8a;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-role {
+            font-weight: 600;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-section {
+            background: #f8fafc;
+            text-align: center;
+        }
+
+        .contact-form-container {
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .contact-form-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .contact-form {
+            text-align: left;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: #f8fafc;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-group input:hover,
+        .form-group select:hover,
+        .form-group textarea:hover {
+            border-color: #cbd5e1;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .hero::before {
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23ffffff05" points="0,1000 1000,0 1000,1000"/></svg>');
-            animation: float 20s ease-in-out infinite;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+        .submit-btn:hover::before {
+            left: 100%;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
+        .form-message {
+            margin-top: 1rem;
+            padding: 14px 18px;
+            border-radius: 10px;
+            display: none;
+            font-weight: 500;
+            animation: slideIn 0.3s ease;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: slideInUp 1s ease-out;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: slideInUp 1s ease-out 0.2s both;
-        }
-
-        @keyframes slideInUp {
+        @keyframes slideIn {
             from {
                 opacity: 0;
-                transform: translateY(50px);
+                transform: translateY(-10px);
             }
             to {
                 opacity: 1;
@@ -162,424 +414,90 @@
             }
         }
 
-        .cta-button {
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            animation: slideInUp 1s ease-out 0.4s both;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 100px 0;
-            background: #f8f9fa;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c3e50;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .feature-card:hover::before {
-            left: 100%;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 2rem;
-            color: white;
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-
-        /* About Section */
-        .about {
-            padding: 100px 0;
-            background: white;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #2c3e50;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: #666;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .stat {
-            text-align: center;
-            padding: 1.5rem;
-            background: #f8f9fa;
-            border-radius: 10px;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #667eea;
-        }
-
-        .about-image {
-            position: relative;
-        }
-
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: -20px;
-            bottom: -20px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 20px;
-            z-index: -1;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service-item {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: all 0.3s ease;
-        }
-
-        .service-item:hover {
-            transform: translateY(-5px);
-            background: rgba(255,255,255,0.2);
-        }
-
-        .service-item h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Team Section */
-        .team {
-            padding: 100px 0;
-            background: #f8f9fa;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .team-member {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .team-member:hover {
-            transform: translateY(-10px);
-        }
-
-        .team-avatar {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 2rem;
-            color: white;
-            font-weight: bold;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 100px 0;
-            background: white;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .contact-form {
-            background: #f8f9fa;
-            padding: 3rem;
-            border-radius: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
+        .form-message.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 2px solid #10b981;
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: #2c3e50;
         }
 
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
+        .form-message.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 2px solid #ef4444;
+            display: block;
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        .contact-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-
-        .contact-item {
+        .contact-info {
             display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .contact-item i {
-            margin-right: 1rem;
-            color: #667eea;
-        }
-
-        /* Footer */
-        footer {
-            background: #2c3e50;
-            color: white;
-            padding: 50px 0 20px;
-            text-align: center;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            justify-content: center;
             gap: 3rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            color: #4ecdc4;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: #bdc3c7;
-            text-decoration: none;
-            line-height: 1.8;
-        }
-
-        .footer-section a:hover {
-            color: #4ecdc4;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #34495e;
-            padding-top: 2rem;
             margin-top: 2rem;
+            flex-wrap: wrap;
         }
 
-        /* Responsive Design */
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            min-width: 250px;
+        }
+
+        .contact-card h3 {
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: #1e293b;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
         @media (max-width: 768px) {
+            .mobile-toggle {
+                display: flex;
+            }
+
             .nav-links {
                 display: none;
             }
 
-            .mobile-menu {
-                display: flex;
-            }
-
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
 
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
 
-            .about-content {
+            .about-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
             }
 
             .stats {
+                justify-content: center;
+            }
+
+            .form-row {
                 grid-template-columns: 1fr;
             }
 
-            .section-title {
-                font-size: 2rem;
+            .contact-form-container {
+                padding: 1.5rem;
             }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            .hero {
-                padding: 120px 0 80px;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .features,
-            .about,
-            .services,
-            .team,
-            .contact {
-                padding: 60px 0;
-            }
-        }
-
-        /* Animation Classes */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Floating Animation */
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <nav class="container">
-            <div class="logo">Scurry Infotech</div>
+            <div class="logo-container">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Scurry Logo" class="logo-img" style="display:none;">
+                <div class="logo-text">SCURRY INFOTECH LLP</div>
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -587,7 +505,7 @@
                 <li><a href="#team">Team</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="mobile-menu">
+            <div class="mobile-toggle">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -595,506 +513,301 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>Revolutionizing Restaurant Experiences</h1>
-                <p>We create innovative solutions that transform how customers dine and how restaurants operate. From AI-powered table booking to seamless pre-ordering systems.</p>
-                <a href="#contact" class="cta-button">Get Started Today</a>
-            </div>
+            <h1>Transforming Restaurant Experiences</h1>
+            <p>Innovative software solutions that revolutionize how customers dine and how restaurants operate. AI-powered table booking meets seamless pre-ordering.</p>
+            <a href="#contact" class="cta-btn">Get Started</a>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
+    <section id="features">
         <div class="container">
-            <h2 class="section-title">Why Choose Scurry Infotech?</h2>
+            <h2 class="section-title">Why Choose Us</h2>
             <div class="features-grid">
-                <div class="feature-card fade-in">
+                <div class="feature-card">
                     <div class="feature-icon">🚀</div>
-                    <h3>AI-Powered Solutions</h3>
-                    <p>Our platform uses advanced AI algorithms for real-time wait time predictions and smart table scheduling, revolutionizing the dining experience.</p>
+                    <h3>AI-Powered Technology</h3>
+                    <p>Advanced algorithms for real-time wait time predictions and intelligent table scheduling that transforms dining.</p>
                 </div>
-                <div class="feature-card fade-in">
+                <div class="feature-card">
                     <div class="feature-icon">📱</div>
                     <h3>Seamless Integration</h3>
-                    <p>Easy-to-integrate solutions that work with existing restaurant systems, providing a smooth transition to digital operations.</p>
+                    <p>Easy integration with existing systems. Smooth transition to digital operations without disruption.</p>
                 </div>
-                <div class="feature-card fade-in">
+                <div class="feature-card">
                     <div class="feature-icon">⚡</div>
                     <h3>Real-Time Updates</h3>
-                    <p>Live table availability, instant booking confirmations, and real-time order status updates for enhanced customer satisfaction.</p>
+                    <p>Live availability, instant confirmations, and real-time status updates for superior customer experience.</p>
                 </div>
-                <div class="feature-card fade-in">
+                <div class="feature-card">
                     <div class="feature-icon">📊</div>
-                    <h3>Analytics & Insights</h3>
-                    <p>Comprehensive analytics dashboard helping restaurants optimize operations, reduce wait times, and increase revenue.</p>
+                    <h3>Analytics Dashboard</h3>
+                    <p>Comprehensive insights to optimize operations, reduce wait times, and boost revenue.</p>
                 </div>
-                <div class="feature-card fade-in">
+                <div class="feature-card">
                     <div class="feature-icon">🔒</div>
-                    <h3>Secure & Reliable</h3>
-                    <p>Enterprise-grade security ensuring customer data protection and reliable service with 99.9% uptime guarantee.</p>
+                    <h3>Enterprise Security</h3>
+                    <p>Bank-grade security with 99.9% uptime guarantee. Your data is always protected.</p>
                 </div>
-                <div class="feature-card fade-in">
+                <div class="feature-card">
                     <div class="feature-icon">🌐</div>
-                    <h3>Scalable Platform</h3>
-                    <p>Built to scale from single restaurants to large chains, supporting growth across multiple locations and markets.</p>
+                    <h3>Scalable Solutions</h3>
+                    <p>Built to grow with you. From single locations to nationwide chains.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <section id="about" class="about-section">
         <div class="container">
-            <div class="about-content">
-                <div class="about-text fade-in">
-                    <h2>About Scurry Infotech</h2>
-                    <p><strong>Early Traction Stage Startup</strong> - We've built a working prototype of our revolutionary web app that allows users to book specific tables at restaurants and pre-order food for a seamless dining experience.</p>
-                    <p>Our innovative platform addresses the significant pain point of long restaurant queues and inefficient table management by introducing real-time booking with AI-based wait-time estimation and pre-ordering capabilities.</p>
-                    <p>Unlike other food platforms focused on delivery, we exclusively enhance the dine-in experience, creating value for both customers and restaurant owners.</p>
+            <div class="about-grid">
+                <div class="about-content">
+                    <h2>About Scurry Infotech LLP</h2>
+                    <p><strong>Early-stage startup with proven traction.</strong> We've developed a working prototype that solves the persistent problem of restaurant queues and inefficient table management.</p>
+                    <p>Our platform enables customers to book specific tables and pre-order food, creating a seamless dining experience. Unlike delivery-focused platforms, we exclusively enhance dine-in experiences.</p>
+                    <p>With AI-based wait-time estimation and real-time booking capabilities, we're creating value for both diners and restaurant owners.</p>
                     <div class="stats">
-                        <div class="stat">
+                        <div class="stat-box">
                             <div class="stat-number">7</div>
                             <div>Team Members</div>
                         </div>
-                        <div class="stat">
+                        <div class="stat-box">
                             <div class="stat-number">100%</div>
                             <div>Bootstrapped</div>
                         </div>
                     </div>
                 </div>
-                <div class="about-image fade-in">
-                    <div style="width: 100%; height: 400px; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">📱🍽️</div>
+                <div class="about-visual">
+                    📱🍽️
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
+    <section id="services" class="services-section">
         <div class="container">
-            <h2 class="section-title" style="color: white;">Our Services</h2>
+            <h2 class="section-title">Our Services</h2>
             <div class="services-grid">
-                <div class="service-item fade-in">
-                    <h3>🔧 Software Development Services</h3>
-                    <p>Custom software solutions tailored to your business needs, from web applications to mobile apps.</p>
+                <div class="service-card">
+                    <h3>🔧 Software Development</h3>
+                    <p>Custom solutions from web applications to mobile apps, tailored to your business needs.</p>
                 </div>
-                <div class="service-item fade-in">
-                    <h3>📈 Digital Marketing Services</h3>
-                    <p>Comprehensive digital marketing strategies to boost your online presence and reach your target audience.</p>
+                <div class="service-card">
+                    <h3>📈 Digital Marketing</h3>
+                    <p>Comprehensive strategies to boost your online presence and reach your target audience.</p>
                 </div>
-                <div class="service-item fade-in">
-                    <h3>⚙️ IT Operational Services</h3>
-                    <p>Complete IT infrastructure management and operational support to keep your business running smoothly.</p>
+                <div class="service-card">
+                    <h3>⚙️ IT Operations</h3>
+                    <p>Complete infrastructure management and support to keep your business running smoothly.</p>
                 </div>
-                <div class="service-item fade-in">
-                    <h3>🍽️ Restaurant Table Booking Platform</h3>
-                    <p>Our flagship product - AI-powered table booking system with real-time availability and pre-ordering capabilities.</p>
+                <div class="service-card">
+                    <h3>🍽️ Restaurant Platform</h3>
+                    <p>Our flagship AI-powered table booking system with real-time availability and pre-ordering.</p>
                 </div>
-                <div class="service-item fade-in">
-                    <h3>🚀 MVP Development for Startups</h3>
-                    <p>Supporting early-stage entrepreneurs by building their software products and minimum viable products.</p>
+                <div class="service-card">
+                    <h3>🚀 MVP Development</h3>
+                    <p>Supporting startups by building minimum viable products and software solutions.</p>
                 </div>
-                <div class="service-item fade-in">
-                    <h3>🤖 AI Integration Solutions</h3>
-                    <p>Planning and implementing AI integrations for smarter resource management in hospitality and other industries.</p>
+                <div class="service-card">
+                    <h3>🤖 AI Integration</h3>
+                    <p>Implementing AI solutions for smarter resource management in hospitality and beyond.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section id="team" class="team">
+    <section id="team">
         <div class="container">
-            <h2 class="section-title">Our Team</h2>
+            <h2 class="section-title">Meet Our Team</h2>
             <div class="team-grid">
-                <div class="team-member fade-in">
+                <div class="team-card">
                     <div class="team-avatar">VR</div>
                     <h3>Vinod Rathod</h3>
-                    <p><strong>Founder & Director</strong></p>
-                    <p>📧 Vinodjemi@gmail.com</p>
-                    <p>📱 9820162646</p>
+                    <p class="team-role">Founder & Director</p>
+                    <p>📧 scurryinfotech@gmail.com</p>
+                    <!-- <p>📱 9820162646</p> -->
                 </div>
-                <div class="team-member fade-in">
+                <div class="team-card">
                     <div class="team-avatar">SR</div>
                     <h3>Shreya Rai</h3>
-                    <p><strong>Founder & Director</strong></p>
-                    <p>📧 raii.shreya@gmail.com</p>
-                    <p>📱 7977001007</p>
+                    <p class="team-role">Co-Founder & Director</p>
+                    <p>📧 scurryinfotech@gmail.com</p>
+                    <!-- <p>📱 7977001007</p> -->
                 </div>
-                <div class="team-member fade-in">
-                    <div class="team-avatar">JP</div>
-                    <h3>Aniketh Rathod</h3>
-                    <p><strong>Intern</strong></p>
-                    <p>Supporting development and operations</p>
-                    <p>📱 9987963928</p>
-                </div>
-                <div class="team-member fade-in">
+                 <div class="team-card">
                     <div class="team-avatar">RY</div>
                     <h3>Rohit Yadav</h3>
-                    <p><strong>Intern</strong></p>
-                    <p>Supporting technical operations</p>
-                    <p>📱 9820162646</p>
+                    <p class="team-role">Intern</p>
+                    <p>Software Engineer Intern</p>
+                    <!-- <p>📱 9820162646</p> -->
                 </div>
-                <div class="team-member fade-in">
-                    <div class="team-avatar">RY</div>
+                <div class="team-card">
+                    <div class="team-avatar">NA</div>
+                    <h3>Nazir Ansari</h3>
+                    <p class="team-role">Intern</p>
+                    <p>Development & Operations</p>
+                    <!-- <p>📱 9</p> -->
+                </div>
+               
+                <div class="team-card">
+                    <div class="team-avatar">SB</div>
                     <h3>Somnath Bhingardeve</h3>
-                    <p><strong>Data Analyst</strong></p>
-                    <p>Supporting technical operations</p>
-                    <p>📱 9820162646</p>
+                    <p class="team-role">Support Technical Staff</p>
+                    <p>Technical Suppot</p>
+                    <!-- <p>📱 9702832030</p> -->
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact-section">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-form fade-in">
-                    <h3>Send us a message</h3>
-                    <form>
+            <p style="font-size: 1.2rem; margin-bottom: 3rem;">Ready to transform your restaurant experience? Contact us today.</p>
+            
+            <div class="contact-form-container">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" placeholder="Your Name *" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" placeholder="Your Email *" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Phone Number *" maxlength="10" required>
                         </div>
                         <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
+                            <input type="text" id="company" name="company" placeholder="Company Name">
                         </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="cta-button">Send Message</button>
-                    </form>
-                </div>
-                <div class="contact-info fade-in">
-                    <h3>Contact Information</h3>
-                    <div class="contact-item">
-                        <span>🌐</span>
-                        <span>www.scurryinfotech.com</span>
                     </div>
-                    <div class="contact-item">
-                        <span>📧</span>
-                        <span>raii.shreya@gmail.com</span>
+                    <div class="form-group">
+                        <select id="service" name="service" required>
+                            <option value="">Select Service *</option>
+                            <option value="restaurant-platform">Restaurant Table Booking Platform</option>
+                            <option value="software-development">Software Development</option>
+                            <!-- <option value="digital-marketing">Digital Marketing</option> -->
+                            <option value="it-operations">Front End Application</option>
+                            <option value="it-operations">Back End Application</option>
+                            <!-- <option value="mvp-development">MVP Development</option> -->
+                            <!-- <option value="ai-integration">AI Integration</option> -->
+                            <option value="other">Other</option>
+                        </select>
                     </div>
-                    <div class="contact-item">
-                        <span>📱</span>
-                        <span>+91 7977001007</span>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" placeholder="Your Message *" required></textarea>
                     </div>
-                    <div class="contact-item">
-                        <span>📧</span>
-                        <span>Vinodjemi@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <span>📱</span>
-                        <span>+91 9820162646</span>
-                    </div>
-                    
-                    <h3 style="margin-top: 2rem;">What We Solve</h3>
-                    <p>❌ Long queues outside popular restaurants</p>
-                    <p>❌ Lack of transparency in wait times</p>
-                    <p>❌ Restaurant inefficiencies in managing footfall</p>
-                    <p>❌ Delays in food preparation</p>
-                    
-                    <h3 style="margin-top: 2rem;">Our Solution</h3>
-                    <p>✅ Real-time table booking with specific table numbers</p>
-                    <p>✅ AI-based wait time predictions</p>
-                    <p>✅ Pre-order capabilities for faster service</p>
-                    <p>✅ Seamless dining experience</p>
-                </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                    <div id="formMessage" class="form-message"></div>
+                </form>
             </div>
+
+            <!-- <div class="contact-info">
+                <div class="contact-card">
+                    <h3>Vinod Rathod</h3>
+                    <p>Founder & Director</p>
+                    <p>📧 scurryinfotech@gmail.com</p>
+                    <p>📱 97028 32030</p>
+                </div>
+                <div class="contact-card">
+                    <h3>Shreya Rai</h3>
+                    <p>Founder & Director</p>
+                    <p>📧 scurryinfotech@gmail.com</p>
+                    <p>📱 97028 32030</p>
+                </div>
+            </div> -->
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Scurry Infotech</h3>
-                    <p>Revolutionizing restaurant experiences through innovative technology solutions. We're building the future of dining, one table at a time.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <p><a href="#home">Home</a></p>
-                    <p><a href="#about">About</a></p>
-                    <p><a href="#services">Services</a></p>
-                    <p><a href="#team">Team</a></p>
-                    <p><a href="#contact">Contact</a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <p>Software Development</p>
-                    <p>Digital Marketing</p>
-                    <p>IT Operations</p>
-                    <p>Restaurant Tech Solutions</p>
-                    <p>MVP Development</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Scurry Infotech. All rights reserved. | Startup India Registered</p>
-            </div>
+            <p>&copy; 2025 Scurry Infotech LLP. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Mobile menu toggle
-        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileToggle = document.querySelector('.mobile-toggle');
         const navLinks = document.querySelector('.nav-links');
-
-        mobileMenu.addEventListener('click', () => {
+        
+        mobileToggle.addEventListener('click', () => {
             navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            navLinks.style.flexDirection = 'column';
-            navLinks.style.position = 'absolute';
-            navLinks.style.top = '100%';
-            navLinks.style.left = '0';
-            navLinks.style.right = '0';
-            navLinks.style.background = 'rgba(102, 126, 234, 0.95)';
-            navLinks.style.padding = '1rem';
-            navLinks.style.backdropFilter = 'blur(10px)';
         });
 
-        // Form submission handler
-        document.querySelector('form').addEventListener('submit', function(e) {
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                company: document.getElementById('company').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value
+            };
+
+            formMessage.className = 'form-message success';
+            formMessage.textContent = 'Thank you for your message! We will get back to you soon.';
             
-            // Simple validation
-            if (!data.name || !data.email || !data.message) {
-                alert('Please fill in all required fields.');
-                return;
-            }
-            
-            // Simulate form submission
-            const submitButton = this.querySelector('button[type="submit"]');
-            const originalText = submitButton.textContent;
-            
-            submitButton.textContent = 'Sending...';
-            submitButton.disabled = true;
+            contactForm.reset();
             
             setTimeout(() => {
-                alert('Thank you for your message! We\'ll get back to you soon.');
-                this.reset();
-                submitButton.textContent = originalText;
-                submitButton.disabled = false;
-            }, 2000);
-        });
-
-        // Add floating animation to feature cards
-        document.querySelectorAll('.feature-card').forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.2}s`;
-            card.classList.add('floating');
-        });
-
-        // Counter animation for stats
-        function animateCounter(element, target, duration) {
-            let start = 0;
-            const increment = target / (duration / 16);
-            
-            function updateCounter() {
-                start += increment;
-                if (start < target) {
-                    element.textContent = Math.floor(start);
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    element.textContent = target;
-                }
-            }
-            
-            updateCounter();
-        }
-
-        // Animate counters when they come into view
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const statNumbers = entry.target.querySelectorAll('.stat-number');
-                    statNumbers.forEach(stat => {
-                        const target = stat.textContent.includes('%') ? 
-                            parseInt(stat.textContent) : 
-                            parseInt(stat.textContent);
-                        stat.textContent = '0';
-                        setTimeout(() => {
-                            if (stat.textContent.includes('%')) {
-                                animateCounter(stat, target, 2000);
-                                setTimeout(() => {
-                                    stat.textContent = target + '%';
-                                }, 2000);
-                            } else {
-                                animateCounter(stat, target, 2000);
-                            }
-                        }, 500);
-                    });
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        });
-
-        const statsSection = document.querySelector('.stats');
-        if (statsSection) {
-            statsObserver.observe(statsSection);
-        }
-
-        // Add typing effect to hero title
-        function typeWriter(element, text, speed = 100) {
-            let i = 0;
-            element.textContent = '';
-            
-            function type() {
-                if (i < text.length) {
-                    element.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            
-            type();
-        }
-
-        // Initialize typing effect when page loads
-        window.addEventListener('load', () => {
-            const heroTitle = document.querySelector('.hero h1');
-            const originalText = heroTitle.textContent;
-            typeWriter(heroTitle, originalText, 80);
-        });
-
-        // Add parallax effect to hero section
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            const heroContent = document.querySelector('.hero-content');
-            
-            if (hero && heroContent) {
-                heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
-
-        // Add glowing effect to CTA button
-        const ctaButton = document.querySelector('.cta-button');
-        if (ctaButton) {
-            ctaButton.addEventListener('mouseenter', () => {
-                ctaButton.style.boxShadow = '0 0 30px rgba(255, 107, 107, 0.5)';
-            });
-            
-            ctaButton.addEventListener('mouseleave', () => {
-                ctaButton.style.boxShadow = '0 10px 25px rgba(0,0,0,0.2)';
-            });
-        }
-
-        // Add smooth reveal animation for sections
-        const revealOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, revealOptions);
-
-        // Apply reveal animation to major sections
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(50px)';
-            section.style.transition = 'all 0.8s ease-out';
-            revealObserver.observe(section);
-        });
-
-        // Add interactive hover effects to team members
-        document.querySelectorAll('.team-member').forEach(member => {
-            member.addEventListener('mouseenter', () => {
-                member.style.transform = 'translateY(-10px) scale(1.02)';
-                member.style.boxShadow = '0 20px 40px rgba(0,0,0,0.15)';
-            });
-            
-            member.addEventListener('mouseleave', () => {
-                member.style.transform = 'translateY(0) scale(1)';
-                member.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
-            });
-        });
-
-        // Add loading animation
-        window.addEventListener('load', () => {
-            const loader = document.createElement('div');
-            loader.style.cssText = `
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                z-index: 9999;
-                transition: opacity 0.5s ease;
-            `;
-            
-            loader.innerHTML = `
-                <div style="text-align: center; color: white;">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">🚀</div>
-                    <div style="font-size: 1.5rem; font-weight: bold;">Scurry Infotech</div>
-                    <div style="font-size: 1rem; margin-top: 0.5rem;">Loading...</div>
-                </div>
-            `;
-            
-            document.body.appendChild(loader);
-            
-            setTimeout(() => {
-                loader.style.opacity = '0';
-                setTimeout(() => {
-                    document.body.removeChild(loader);
-                }, 500);
-            }, 1500);
+                formMessage.style.display = 'none';
+            }, 5000);
         });
     </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
 </body>
 </html>
